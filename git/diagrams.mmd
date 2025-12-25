@@ -1,0 +1,50 @@
+%% Git core mental models visualized
+
+%% Read top to bottom
+
+%% Diagram 1: Working tree, staging, and commit flow
+flowchart LR
+    WT[Working Directory]
+    SA[Staging Area]
+    REPO[Repository History]
+
+    WT -->|stage changes| SA
+    SA -->|create commit| REPO
+
+%% Diagram 2: Commit graph with branch pointers
+graph TD
+    C1[Commit 1]
+    C2[Commit 2]
+    C3[Commit 3]
+
+    C1 --> C2
+    C2 --> C3
+
+    main --> C3
+    HEAD --> main
+
+%% Diagram 3: Branching and merging
+graph TD
+    C1[Commit 1]
+    C2[Commit 2]
+    C3[Feature Commit]
+    C4[Main Commit]
+    C5[Merge Commit]
+
+    C1 --> C2
+    C2 --> C3
+    C2 --> C4
+    C3 --> C5
+    C4 --> C5
+
+    main --> C5
+    feature --> C3
+    
+%% Diagram 4: Rewriting history vs extending history
+graph LR
+    A[Old Commit] --> B[Old Commit]
+    B --> C[New Commit]
+
+    subgraph Rewritten History
+        A --> D[Rewritten Commit]
+    end
