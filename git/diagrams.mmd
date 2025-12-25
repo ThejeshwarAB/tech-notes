@@ -1,10 +1,10 @@
 flowchart TB
 
-%% =========================
-%% Git core mental models
-%% =========================
+%% invisible anchors to force vertical layout
+A1[" "] --> A2[" "] --> A3[" "] --> A4[" "]
 
 subgraph S1["File States"]
+    direction TB
     WT["Working Directory"]
     SA["Staging Area"]
     REPO["Repository History"]
@@ -14,6 +14,7 @@ subgraph S1["File States"]
 end
 
 subgraph S2["Commits, Branches, HEAD"]
+    direction TB
     C1["Commit 1"]
     C2["Commit 2"]
     C3["Commit 3"]
@@ -26,6 +27,7 @@ subgraph S2["Commits, Branches, HEAD"]
 end
 
 subgraph S3["Branching and Merging"]
+    direction TB
     B1["Base Commit"]
     F1["Feature Commit"]
     M1["Merge Commit"]
@@ -38,6 +40,7 @@ subgraph S3["Branching and Merging"]
 end
 
 subgraph S4["Rewriting History"]
+    direction TB
     O1["Old Commit"]
     O2["Old Commit"]
 
@@ -46,3 +49,9 @@ subgraph S4["Rewriting History"]
     R1["Rewritten Commit"]
     O1 --> R1
 end
+
+%% force vertical ordering
+A1 --- S1
+A2 --- S2
+A3 --- S3
+A4 --- S4
