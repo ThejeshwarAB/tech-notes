@@ -1,7 +1,8 @@
 flowchart TB
 
-%% invisible anchors to force vertical layout
-A1[" "] --> A2[" "] --> A3[" "] --> A4[" "]
+%% =========================
+%% Git mental models
+%% =========================
 
 subgraph S1["File States"]
     direction TB
@@ -49,9 +50,3 @@ subgraph S4["Rewriting History"]
     R1["Rewritten Commit"]
     O1 --> R1
 end
-
-%% force vertical ordering
-A1 --- S1
-A2 --- S2
-A3 --- S3
-A4 --- S4
