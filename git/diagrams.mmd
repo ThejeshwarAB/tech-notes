@@ -1,50 +1,48 @@
-%% Git core mental models visualized
+flowchart TB
 
-%% Read top to bottom
+%% =========================
+%% Git core mental models
+%% =========================
 
-%% Diagram 1: Working tree, staging, and commit flow
-flowchart LR
-    WT[Working Directory]
-    SA[Staging Area]
-    REPO[Repository History]
+subgraph S1["File States"]
+    WT["Working Directory"]
+    SA["Staging Area"]
+    REPO["Repository History"]
 
-    WT -->|stage changes| SA
-    SA -->|create commit| REPO
+    WT --> SA
+    SA --> REPO
+end
 
-%% Diagram 2: Commit graph with branch pointers
-graph TD
-    C1[Commit 1]
-    C2[Commit 2]
-    C3[Commit 3]
-
-    C1 --> C2
-    C2 --> C3
-
-    main --> C3
-    HEAD --> main
-
-%% Diagram 3: Branching and merging
-graph TD
-    C1[Commit 1]
-    C2[Commit 2]
-    C3[Feature Commit]
-    C4[Main Commit]
-    C5[Merge Commit]
+subgraph S2["Commits, Branches, HEAD"]
+    C1["Commit 1"]
+    C2["Commit 2"]
+    C3["Commit 3"]
 
     C1 --> C2
     C2 --> C3
-    C2 --> C4
-    C3 --> C5
-    C4 --> C5
 
-    main --> C5
-    feature --> C3
-    
-%% Diagram 4: Rewriting history vs extending history
-graph LR
-    A[Old Commit] --> B[Old Commit]
-    B --> C[New Commit]
+    main["main branch"] --> C3
+    HEAD["HEAD"] --> main
+end
 
-    subgraph Rewritten History
-        A --> D[Rewritten Commit]
-    end
+subgraph S3["Branching and Merging"]
+    B1["Base Commit"]
+    F1["Feature Commit"]
+    M1["Merge Commit"]
+
+    B1 --> F1
+    B1 --> M1
+    F1 --> M1
+
+    feature["feature branch"] --> F1
+end
+
+subgraph S4["Rewriting History"]
+    O1["Old Commit"]
+    O2["Old Commit"]
+
+    O1 --> O2
+
+    R1["Rewritten Commit"]
+    O1 --> R1
+end
