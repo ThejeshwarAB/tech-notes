@@ -1,7 +1,7 @@
 # Docker Commands
 
 This file is a practical reference for Docker commands I have personally used.
-It assumes understanding of Docker internals.
+
 
 ## Images
 
