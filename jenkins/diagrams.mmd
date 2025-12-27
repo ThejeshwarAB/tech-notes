@@ -1,0 +1,29 @@
+flowchart TB
+
+%% =========================
+%% Jenkins mental models
+%% =========================
+
+subgraph J1["Jenkins Architecture"]
+    direction TB
+    j_controller["Jenkins Controller"]
+    j_agent1["Agent 1"]
+    j_agent2["Agent 2"]
+
+    j_controller --> j_agent1
+    j_controller --> j_agent2
+end
+
+subgraph J2["Pipeline Execution Flow"]
+    direction TB
+    trigger["Trigger"]
+    pipeline["Pipeline"]
+    stage1["Build Stage"]
+    stage2["Test Stage"]
+    stage3["Deploy Stage"]
+
+    trigger --> pipeline
+    pipeline --> stage1
+    stage1 --> stage2
+    stage2 --> stage3
+end
