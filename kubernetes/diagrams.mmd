@@ -1,0 +1,38 @@
+flowchart TB
+
+%% =========================
+%% Kubernetes mental models
+%% =========================
+
+subgraph K1["Cluster Structure"]
+    direction TB
+    cluster["Kubernetes Cluster"]
+    cp["Control Plane"]
+    node1["Worker Node 1"]
+    node2["Worker Node 2"]
+
+    cluster --> cp
+    cluster --> node1
+    cluster --> node2
+end
+
+subgraph K2["Pods Running on Nodes"]
+    direction TB
+    podA["Pod A"]
+    podB["Pod B"]
+    podC["Pod C"]
+
+    node1 --> podA
+    node1 --> podB
+    node2 --> podC
+end
+
+subgraph K3["Desired State Reconciliation"]
+    direction TB
+    desired["Desired State"]
+    current["Current State"]
+    reconcile["Reconciliation Loop"]
+
+    desired --> reconcile
+    current --> reconcile
+    reconcile --> c
