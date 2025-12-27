@@ -6,33 +6,34 @@ flowchart TB
 
 subgraph K1["Cluster Structure"]
     direction TB
-    cluster["Kubernetes Cluster"]
-    cp["Control Plane"]
-    node1["Worker Node 1"]
-    node2["Worker Node 2"]
+    k_cluster["Cluster"]
+    k_cp["Control Plane"]
+    k_node1["Worker Node 1"]
+    k_node2["Worker Node 2"]
 
-    cluster --> cp
-    cluster --> node1
-    cluster --> node2
+    k_cluster --> k_cp
+    k_cluster --> k_node1
+    k_cluster --> k_node2
 end
 
-subgraph K2["Pods Running on Nodes"]
+subgraph K2["Pods on Nodes"]
     direction TB
-    podA["Pod A"]
-    podB["Pod B"]
-    podC["Pod C"]
+    k_pod1["Pod A"]
+    k_pod2["Pod B"]
+    k_pod3["Pod C"]
 
-    node1 --> podA
-    node1 --> podB
-    node2 --> podC
+    k_node1 --> k_pod1
+    k_node1 --> k_pod2
+    k_node2 --> k_pod3
 end
 
 subgraph K3["Desired State Reconciliation"]
     direction TB
-    desired["Desired State"]
-    current["Current State"]
-    reconcile["Reconciliation Loop"]
+    k_desired["Desired State"]
+    k_current["Current State"]
+    k_loop["Reconciliation Loop"]
 
-    desired --> reconcile
-    current --> reconcile
-    reconcile --> c
+    k_desired --> k_loop
+    k_current --> k_loop
+    k_loop --> k_current
+end
