@@ -6,28 +6,44 @@ flowchart TB
 
 subgraph D1["Image Layers"]
     direction TB
-    L1["Base OS Layer"]
-    L2["Runtime Layer"]
-    L3["Dependencies Layer"]
-    L4["Application Code Layer"]
+    base["Base OS"]
+    runtime["Runtime"]
+    deps["Dependencies"]
+    app["Application"]
 
-    L1 --> L2
-    L2 --> L3
-    L3 --> L4
+    base --> runtime
+    runtime --> deps
+    deps --> app
 end
 
-subgraph D2["Container from Image"]
+subgraph D2["Container Internals"]
     direction TB
-    IMG["Immutable Image"]
-    WL["Writable Layer"]
-    PROC["Running Process"]
+    image["Immutable Image"]
+    writable["Writable Layer"]
+    process["Running Process"]
 
-    IMG --> WL
-    WL --> PROC
+    image --> writable
+    writable --> process
 end
 
 subgraph D3["Image and Container Lifecycle"]
     direction TB
-    I1["Docker Image"]
-    C1["Container Instance"]
-    C2["Another Container]()
+    img["Docker Image"]
+    contA["Container A"]
+    contB["Container B"]
+
+    img --> contA
+    img --> contB
+end
+
+subgraph D4["Docker Engine Scope"]
+    direction TB
+    engine["Docker Engine"]
+    imgs["Images"]
+    conts["Containers"]
+    host["Single Host"]
+
+    engine --> imgs
+    engine --> conts
+    engine --> host
+end
