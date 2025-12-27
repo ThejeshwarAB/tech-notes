@@ -1,0 +1,33 @@
+flowchart TB
+
+%% =========================
+%% Docker mental models
+%% =========================
+
+subgraph D1["Image Layers"]
+    direction TB
+    L1["Base OS Layer"]
+    L2["Runtime Layer"]
+    L3["Dependencies Layer"]
+    L4["Application Code Layer"]
+
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+end
+
+subgraph D2["Container from Image"]
+    direction TB
+    IMG["Immutable Image"]
+    WL["Writable Layer"]
+    PROC["Running Process"]
+
+    IMG --> WL
+    WL --> PROC
+end
+
+subgraph D3["Image and Container Lifecycle"]
+    direction TB
+    I1["Docker Image"]
+    C1["Container Instance"]
+    C2["Another Container]()
