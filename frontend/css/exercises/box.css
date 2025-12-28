@@ -1,0 +1,13 @@
+/* margin
+padding
+border
+width
+height */
+
+.box{
+    margin: 15px;
+    padding: 15px;
+    border: 5px solid black;
+    width: auto;
+    height: auto;
+}
