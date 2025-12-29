@@ -11,3 +11,27 @@ height */
     width: auto;
     height: auto;
 }
+
+.flex1 > :nth-child(1){
+    margin: 10px;
+    padding: 10px;
+    border: 3px dashed blue;
+    width: 100px;
+    height: 100px;
+}
+
+.flex2 .box :nth-child(1){
+    margin: 10px;
+    padding: 10px;
+    border: 3px dashed red;
+    width: 100px;
+    height: 100px;
+}
+
+.flex3 :nth-child(1){
+    margin: 10px;
+    padding: 10px;
+    border: 3px dashed green;
+    width: 100px;
+    height: 100px;
+}
