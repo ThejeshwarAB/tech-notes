@@ -1,0 +1,16 @@
+/* Horizontal navigation
+Card layout (row → wrap)
+Center content (both axes)
+display: flex
+justify-content
+align-items
+gap
+flex-wrap */
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
