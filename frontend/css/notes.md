@@ -54,21 +54,24 @@ Overly specific or deeply nested selectors make styles brittle and harder to mai
 
 ## CSS Selectors Reference
 
-| Selector type | Syntax | Purpose |
-|-------------|-------|---------|
-| Universal | `*` | Global resets |
-| Element | `tag` | Base styling |
-| Class | `.class` | Reusable styles |
-| ID | `#id` | Unique hooks |
-| Descendant | `A B` | Scoped styling |
-| Child | `A > B` | Strict hierarchy |
-| Adjacent sibling | `A + B` | Immediate relationships |
-| General sibling | `A ~ B` | Section-based styling |
-| Attribute | `[attr]` | State-based styling |
-| Attribute value | `[attr=value]` | Precise targeting |
-| Pseudo-class | `:` | Interaction states |
-| Pseudo-element | `::` | Partial element styling |
-| Grouping | `,` | Shared rules |
+## CSS Selectors Reference
+
+| Selector type | Syntax | Example | What it selects | Typical use case |
+|-------------|-------|--------|-----------------|------------------|
+| Universal | `*` | `* { box-sizing: border-box; }` | All elements | Global resets |
+| Element | `tag` | `p {}` | All `<p>` elements | Base typography |
+| Class | `.class` | `.card {}` | Elements with class | Reusable components |
+| ID | `#id` | `#header {}` | One unique element | Rare layout hooks |
+| Descendant | `A B` | `.nav a {}` | Any matching element inside | Scoped styling |
+| Child | `A > B` | `.list > li {}` | Direct children only | Strict structure |
+| Adjacent sibling | `A + B` | `h2 + p {}` | Immediate next sibling | Fine spacing control |
+| General sibling | `A ~ B` | `h2 ~ p {}` | All following siblings | Section-based rules |
+| Attribute | `[attr]` | `[disabled] {}` | Elements with attribute | Form states |
+| Attribute value | `[attr=value]` | `input[type="email"] {}` | Exact attribute match | Precise targeting |
+| Pseudo-class | `:` | `button:hover {}` | Element state | Interaction |
+| Pseudo-element | `::` | `p::first-line {}` | Part of an element | Cosmetic effects |
+| Grouping | `,` | `h1, h2, h3 {}` | Multiple selectors | Shared styles |
+
 
 ## CSS mental model
 
