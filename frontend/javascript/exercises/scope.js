@@ -43,6 +43,3 @@ var counter = makeCounter();
 console.log(counter()); // Outputs: 1
 console.log(counter()); // Outputs: 2
 console.log(counter()); // Outputs: 3
-
-
-
